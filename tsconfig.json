@@ -56,7 +56,6 @@
     "listFiles": true
   },
   "include": [
-    "*.js",
     "*.ts"
   ]
 }
