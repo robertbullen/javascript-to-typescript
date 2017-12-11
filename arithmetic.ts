@@ -10,6 +10,8 @@ export type Operation = (operands: number[]) => Promise<number>;
 export interface Operations {
     '+': Operation;
     '-': Operation;
+    '*': Operation;
+    '/': Operation;
 }
 
 /**
@@ -20,9 +22,15 @@ export const operations: Operations = {
         return Promise.resolve(operands.reduce((previous, current) => previous + current));
     },
 
-    '-'(operands): Promise<number> {
+    '-'(operands: number[]): Promise<number> {
         return Promise.resolve(operands.reduce((previous, current) => previous - current));
-    }
+    },
 
-    // TODO: Implement multiplication and division.
+    '*'(operands: number[]): Promise<number> {
+        return Promise.resolve(operands.reduce((previous, current) => previous * current));
+    },
+
+    '/'(operands: number[]): Promise<number> {
+        return Promise.resolve(operands.reduce((previous, current) => previous / current));
+    }
 }
