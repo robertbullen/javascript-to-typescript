@@ -14,23 +14,25 @@ export interface Operations {
     '/': Operation;
 }
 
-/**
- * operations is an instance of the interface Operations.
- */
-export const operations: Operations = {
-    '+'(operands: number[]): Promise<number> {
-        return Promise.resolve(operands.reduce((previous, current) => previous + current));
-    },
+export namespace Operations {
+    /**
+     * An instance of the interface Operations.
+     */
+    export const instance: Operations = {
+        '+'(operands: number[]): Promise<number> {
+            return Promise.resolve(operands.reduce((previous, current) => previous + current));
+        },
 
-    '-'(operands: number[]): Promise<number> {
-        return Promise.resolve(operands.reduce((previous, current) => previous - current));
-    },
+        '-'(operands: number[]): Promise<number> {
+            return Promise.resolve(operands.reduce((previous, current) => previous - current));
+        },
 
-    '*'(operands: number[]): Promise<number> {
-        return Promise.resolve(operands.reduce((previous, current) => previous * current));
-    },
+        '*'(operands: number[]): Promise<number> {
+            return Promise.resolve(operands.reduce((previous, current) => previous * current));
+        },
 
-    '/'(operands: number[]): Promise<number> {
-        return Promise.resolve(operands.reduce((previous, current) => previous / current));
+        '/'(operands: number[]): Promise<number> {
+            return Promise.resolve(operands.reduce((previous, current) => previous / current));
+        }
     }
 }
